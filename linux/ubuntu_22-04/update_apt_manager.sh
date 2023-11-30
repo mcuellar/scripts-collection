@@ -1,7 +1,8 @@
 #!/bin/bash
 
-logHeader "Updating apt package manager"
+log_header "Updating apt package manager"
+log_message "Starting"
 
-logMessage "Starting"
 sudo apt update
-logMessage "Finished apt update"
+
+log_message "Finished apt update"
