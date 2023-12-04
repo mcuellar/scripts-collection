@@ -14,4 +14,7 @@ log_message "Starting"
 
 su ubuntu -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
 
+log_message "Changing default shell to zsh"
+chsh -s $(which zsh) ubuntu
+
 log_message "Finished oh-my-zsh install"
