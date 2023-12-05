@@ -23,13 +23,13 @@ download_and_source_global
 save_start_time
 
 # Update apt package manager
-download_and_execute "update_apt_manager.sh"
+download_and_execute "apt_update.sh"
 
 # Install apt essentials
-download_and_execute "install_curl_unzip.sh"
+download_and_execute "curl_unzip.sh"
 
 # Install oh-my-zsh
-download_and_execute "install_ohmyzsh.sh"
+download_and_execute "ohmyzsh.sh"
 
 # Record end time
 save_end_time
