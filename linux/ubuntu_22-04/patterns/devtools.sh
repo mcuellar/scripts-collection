@@ -7,7 +7,12 @@ SCRIPT_REPO="https://raw.githubusercontent.com/mcuellar/scripts-collection/main/
 function run() {
     local script_name="$1"
     curl -sSL "${SCRIPT_REPO}/${script_name}" -o "${script_name}"  # Save to current directory
-    bash "${script_name}"  # Execute the downloaded script
+    bash "${script_name}" # Execute the downloaded script
+}
+
+function download(){
+    local script_name="$1"
+    curl -sSL "${SCRIPT_REPO}/${script_name}" -o "${script_name}"
 }
 
 # Function to download and source the global script.  This will allow sharing of global.sh functions
@@ -32,7 +37,9 @@ run "curl_unzip.sh"
 run "ohmyzsh.sh"
 
 # Configure gitconfig
-run "gitconfig.sh ubuntu 'Marcelo Cuellar' 'marcelo.g.cuellar@gmail.com'"
+download "gitconfig.sh"
+./gitconfig.sh ubuntu 'Marcelo Cuellar' 'marcelo.g.cuellar@gmail.com'
+
 # Record end time
 save_end_time
 
