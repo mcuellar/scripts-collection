@@ -32,7 +32,7 @@ run "curl_unzip.sh"
 run "ohmyzsh.sh"
 
 # Configure gitconfig
-run "gitconfig.sh ubuntu 'Marcelo Cuellar' 'marcelo.g.cuellar@gmail.com"
+run "gitconfig.sh ubuntu 'Marcelo Cuellar' 'marcelo.g.cuellar@gmail.com'"
 # Record end time
 save_end_time
 
