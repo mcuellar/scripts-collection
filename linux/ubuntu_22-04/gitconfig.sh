@@ -14,33 +14,41 @@ user=$1
 name=$2
 email=$3
 
-# Set the GitHub URL for the .gitconfig.template file
-# github_url="https://raw.githubusercontent.com/your_username/your_repository/main/.gitconfig.template"
+# Set URL for .gitconfig.template file
 TEMPLATES_URL=https://raw.githubusercontent.com/mcuellar/scripts-collection/main/linux/ubuntu_22-04/templates/
 
 
 # Function to download and execute scripts
 function download() {
     local template="$1"
-    curl -s "${TEMPLATES_URL}/${template}"  # Save to current directory
+    curl -sSL "${TEMPLATES_URL}/${template}" -o ${template}  # Save to current directory
 }
 
 
-# Download .gitconfig.template from GitHub
-gitconfig_template=$(download "gitconfig.tmpl")
+# Set the output path to /home/$user
+output_path="/home/$user/.gitconfig"
+
+# Download .gitconfig.template
+download gitconfig.tmpl
 
 # Check if the download was successful
-if [ -z "$gitconfig_template" ]; then
+if [ -z "gitconfig.tmpl" ]; then
     log_message "Error: Unable to download gitconfig.tmpl."
     exit 1
 fi
 
-# Update the template file with the provided name and email
-gitconfig_template=$(echo "$gitconfig_template" | sed "s/{{NAME}}/$name/g; s/{{EMAIL}}/$email/g")
+echo "After download"
+cat gitconfig.tmpl
 
-# Set the output path to /home/$user
-output_path="/home/$user"
+# Search and replace
+sed -i "s/{{NAME}}/$name/" gitconfig.tmpl
+sed -i "s/{{EMAIL}}/$email/" gitconfig.tmpl
+
+log_message "Saving new gitconfig file to: $output_path"
+cat gitconfig.tmpl > $output_path
+
+log_message "Final gitconfig output"
+cat $output_path
 
 # Save the updated .gitconfig file
-log_message "$gitconfig_template" > "$output_path/.gitconfig"
-log_message "Updated .gitconfig file saved successfully to $output_path/.gitconfig."
+log_message "Updated .gitconfig file saved successfully to $output_path"
