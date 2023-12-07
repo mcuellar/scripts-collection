@@ -13,6 +13,7 @@ function run() {
 function download(){
     local script_name="$1"
     curl -sSL "${SCRIPT_REPO}/${script_name}" -o "${script_name}"
+    chmod +x ${script_name}
 }
 
 # Function to download and source the global script.  This will allow sharing of global.sh functions
