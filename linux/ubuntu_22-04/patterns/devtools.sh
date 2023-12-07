@@ -31,6 +31,8 @@ run "curl_unzip.sh"
 # Install oh-my-zsh
 run "ohmyzsh.sh"
 
+# Configure gitconfig
+run "gitconfig.sh" ubuntu "Marcelo Cuellar" "marcelo.g.cuellar@gmail.com"
 # Record end time
 save_end_time
 
