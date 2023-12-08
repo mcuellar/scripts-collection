@@ -9,7 +9,7 @@
 #   name: First and Last Name for your git commits
 #   email: Email address for your git commits
 # USAGE:
-#   gitconfig.sh <user> <name> <email
+#   gitconfig.sh <user> <name> <email>
 
 
 # Assign parameters to variables

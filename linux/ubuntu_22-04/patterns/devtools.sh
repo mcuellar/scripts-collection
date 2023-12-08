@@ -1,4 +1,19 @@
 #!/bin/bash
+# This script allows you to install developer tools onto an ubuntu instane.
+# The following will get installed: curl, zip, ohmyzsh, and git config to a specified user
+#
+# PARAMETERS:
+#   user: Name of system user to install .gitconfig under. 
+#   name: First and Last Name for your git commits
+#   email: Email address for your git commits
+# USAGE:
+#   devtools.sh <user> <name> <email>
+
+
+# Assign parameters to variables
+user=$1
+name=$2
+email=$3
 
 # Define the base URL for your script repository
 SCRIPT_REPO="https://raw.githubusercontent.com/mcuellar/scripts-collection/main/linux/ubuntu_22-04"
@@ -22,6 +37,12 @@ function init_global() {
     source "global.sh"  # Source the global script
 }
 
+# Check if all required parameters are provided
+if [ "$#" -ne 3 ]; then
+    log_message "Usage: $0 <user> <name> <email>"
+    exit 1
+fi
+
 # Download and source the global script
 init_global
 
@@ -39,7 +60,7 @@ run "ohmyzsh.sh"
 
 # Configure gitconfig
 download "gitconfig.sh"
-./gitconfig.sh ubuntu 'Marcelo Cuellar' 'marcelo.g.cuellar@gmail.com'
+./gitconfig.sh ${user} "${name}" '${email}"
 
 # Record end time
 save_end_time
