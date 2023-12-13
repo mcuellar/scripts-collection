@@ -1,9 +1,11 @@
 # Scripts-Collection
-Global scripts collection to be able to be consumed by different clients. Some examples can be from your personal laptop, directly from a server, or via user-data when provisioning a new Ec2 instance.
+Global scripts collection is a set of OS specific set of scripts that can be consumed by different clients. 
+
+These scripts can be called from your personal laptop, directly from a server, or via user-data when provisioning a new Ec2 instance.
 <br><br>
 # Usage
 ## Standalone Scripts
-Here is an example on downloading and running different script to install different component on ubuntu 22.04
+Here is an example on downloading and running different scripts to install different component on ubuntu 22.04
 
 Ubuntu 22.04 Scripts List: https://github.com/mcuellar/scripts-collection/tree/main/linux/ubuntu_22-04
 
@@ -53,9 +55,9 @@ display_elapsed_times
 ### Ubuntu Patterns URL
 https://github.com/mcuellar/scripts-collection/tree/main/linux/ubuntu_22-04/patterns
 
-NOTE: When downloading a new pattern script you'll need to pass the name of the pattern scrip to the run method as seen below.
+NOTE: When downloading a new pattern script, you'll need to pass the name of the pattern script to the run method as seen below.
 ### Devtools Pattern
-The below example uses existing standalone scripts put together in a pattern script to install various installs usuful for developers. 
+The below example uses existing standalone scripts put together in a pattern script to install various installs at once. You may click directly on a pattern script to look at the details of what it will install. 
 
 ```bash
 #!/bin/bash

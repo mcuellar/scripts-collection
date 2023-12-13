@@ -60,7 +60,7 @@ run "ohmyzsh.sh"
 
 # Configure gitconfig
 download "gitconfig.sh"
-./gitconfig.sh ${user} "${name}" '${email}"
+./gitconfig.sh ${user} "${name}" "${email}"
 
 # Record end time
 save_end_time
